@@ -58,12 +58,16 @@ class SearchRepositoryViewController: UITableViewController, UISearchBarDelegate
             // URLに代入
             searchUrl = "https://api.github.com/search/repositories?q=\(searchWord!)"
             GetLog.getLog(message: "\(String(describing: searchUrl))")
-            
+            // 取得ミス時
             if(searchUrl == nil){
                 return
             }
+            // URLのエンコード(パースミスを防ぐ)
+            let encodedUrl = searchUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            GetLog.getLog(message: "\(String(describing: encodedUrl))")
+            
             // URL形式にする
-            guard let url = URL(string: searchUrl) else{
+            guard encodedUrl != nil, let url = URL(string: encodedUrl!) else{
                 return
             }
             // データ取得処理
@@ -75,6 +79,7 @@ class SearchRepositoryViewController: UITableViewController, UISearchBarDelegate
                 }
                 // データがないなら終了
                 if data == nil {
+                    
                     return
                 }
                 // パース処理
@@ -124,17 +129,13 @@ class SearchRepositoryViewController: UITableViewController, UISearchBarDelegate
         GetLog.getLog(message: nil)
         
         // セル生成
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RepositoryCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RepositoryCell", for: indexPath) as! SearchRepositoryCell
         
-        // 再生成でキャッシュがのこらないようにする
-        for subView in cell.contentView.subviews{
-            subView.removeFromSuperview()
-        }
         // リポジトリ取得
         let repo = repos[indexPath.row]
         // テーブルに反映
-        cell.textLabel?.text       = repo["full_name"] as? String ?? ""
-        cell.detailTextLabel?.text = repo["language"]  as? String ?? ""
+        cell.repositoryTitle.text  = repo["full_name"] as? String ?? ""
+        cell.usedLanguage.text     = repo["language"]  as? String ?? ""
         // セルの行番号を設定
         cell.tag = indexPath.row
         

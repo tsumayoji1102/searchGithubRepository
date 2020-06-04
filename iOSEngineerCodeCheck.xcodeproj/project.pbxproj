@@ -17,6 +17,7 @@
 		BFD945F6244DC5EB0012785A /* iOSEngineerCodeCheckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945F5244DC5EB0012785A /* iOSEngineerCodeCheckTests.swift */; };
 		BFD94601244DC5EC0012785A /* iOSEngineerCodeCheckUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD94600244DC5EC0012785A /* iOSEngineerCodeCheckUITests.swift */; };
 		E7101A6D2488D09A00CA3567 /* GetLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101A6C2488D09A00CA3567 /* GetLog.swift */; };
+		E7101A6F2488DB6500CA3567 /* SearchRepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101A6E2488DB6500CA3567 /* SearchRepositoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		BFD94600244DC5EC0012785A /* iOSEngineerCodeCheckUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSEngineerCodeCheckUITests.swift; sourceTree = "<group>"; };
 		BFD94602244DC5EC0012785A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7101A6C2488D09A00CA3567 /* GetLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLog.swift; sourceTree = "<group>"; };
+		E7101A6E2488DB6500CA3567 /* SearchRepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				BFD945DE244DC5E80012785A /* AppDelegate.swift */,
 				BFD945E0244DC5E80012785A /* SceneDelegate.swift */,
 				BFD945E2244DC5E80012785A /* SearchRepositoryViewController.swift */,
+				E7101A6E2488DB6500CA3567 /* SearchRepositoryCell.swift */,
 				BF0A658C244F2A3B00280FA6 /* RepositoryDetailViewController.swift */,
 				E7101A6C2488D09A00CA3567 /* GetLog.swift */,
 				BFD945E4244DC5E80012785A /* Main.storyboard */,
@@ -270,6 +273,7 @@
 				E7101A6D2488D09A00CA3567 /* GetLog.swift in Sources */,
 				BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */,
 				BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */,
+				E7101A6F2488DB6500CA3567 /* SearchRepositoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
