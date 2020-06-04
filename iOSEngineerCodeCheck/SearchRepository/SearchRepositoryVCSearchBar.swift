@@ -1,38 +1,16 @@
 //
-//  ViewController.swift
+//  SearchRepositoryVCSearchBar.swift
 //  iOSEngineerCodeCheck
 //
-//  Created by 史 翔新 on 2020/04/20.
+//  Created by 塩見陵介 on 2020/06/04.
 //  Copyright © 2020 YUMEMI Inc. All rights reserved.
 //
 
 import UIKit
 
-class SearchRepositoryViewController: UITableViewController, UISearchBarDelegate {
+// MARK: - UISearchBarDelegate
 
-    @IBOutlet weak var reposSearchBar: UISearchBar!
-    
-    var repos:       [[String: Any]]=[]   // 取得したリポジトリ
-    var getRepoTask: URLSessionTask?      // 取得処理のタスク
-    var searchWord:  String!              // 検索ワード
-    var searchUrl:   String!              // リポジトリ検索APIのURL
-    var index:       Int!                 // リポジトリの行番号(画面遷移時)
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        GetLog.getLog(message: nil)
-        
-        // 検索バーの初期化
-        reposSearchBar.text     = "GitHubのリポジトリを検索できるよー"
-        reposSearchBar.delegate = self
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
-        GetLog.getLog(message: nil)
-    }
+extension SearchRepositoryViewController: UISearchBarDelegate{
     
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         
@@ -106,51 +84,5 @@ class SearchRepositoryViewController: UITableViewController, UISearchBarDelegate
             getRepoTask?.resume()
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        GetLog.getLog(message: nil)
-        
-        if segue.identifier == "RepositoryDetail"{
-            let repositoryDetailVC = segue.destination as! RepositoryDetailViewController
-            repositoryDetailVC.searchRepositoryVC = self
-        }
-        
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        GetLog.getLog(message: "repos.count: \(repos.count)")
-        return repos.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        GetLog.getLog(message: nil)
-        
-        // セル生成
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RepositoryCell", for: indexPath) as! SearchRepositoryCell
-        
-        // リポジトリ取得
-        let repo = repos[indexPath.row]
-        // テーブルに反映
-        cell.repositoryTitle.text  = repo["full_name"] as? String ?? ""
-        cell.usedLanguage.text     = repo["language"]  as? String ?? ""
-        // セルの行番号を設定
-        cell.tag = indexPath.row
-        
-        return cell
-        
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        GetLog.getLog(message: "index: \(String(describing: index))")
-        
-        // 画面遷移時に呼ばれる
-        index = indexPath.row
-        performSegue(withIdentifier: "RepositoryDetail", sender: self)
-        
-    }
-    
 }
+

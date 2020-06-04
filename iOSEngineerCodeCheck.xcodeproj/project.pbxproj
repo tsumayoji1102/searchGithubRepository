@@ -16,6 +16,7 @@
 		BFD945EB244DC5EB0012785A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD945E9244DC5EB0012785A /* LaunchScreen.storyboard */; };
 		BFD945F6244DC5EB0012785A /* iOSEngineerCodeCheckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945F5244DC5EB0012785A /* iOSEngineerCodeCheckTests.swift */; };
 		BFD94601244DC5EC0012785A /* iOSEngineerCodeCheckUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD94600244DC5EC0012785A /* iOSEngineerCodeCheckUITests.swift */; };
+		E70E9820248901B4000E6D44 /* SearchRepositoryVCSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70E981F248901B4000E6D44 /* SearchRepositoryVCSearchBar.swift */; };
 		E7101A6D2488D09A00CA3567 /* GetLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101A6C2488D09A00CA3567 /* GetLog.swift */; };
 		E7101A6F2488DB6500CA3567 /* SearchRepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101A6E2488DB6500CA3567 /* SearchRepositoryCell.swift */; };
 /* End PBXBuildFile section */
@@ -53,6 +54,7 @@
 		BFD945FC244DC5EB0012785A /* iOSEngineerCodeCheckUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSEngineerCodeCheckUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD94600244DC5EC0012785A /* iOSEngineerCodeCheckUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSEngineerCodeCheckUITests.swift; sourceTree = "<group>"; };
 		BFD94602244DC5EC0012785A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E70E981F248901B4000E6D44 /* SearchRepositoryVCSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoryVCSearchBar.swift; sourceTree = "<group>"; };
 		E7101A6C2488D09A00CA3567 /* GetLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLog.swift; sourceTree = "<group>"; };
 		E7101A6E2488DB6500CA3567 /* SearchRepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,9 +109,8 @@
 			children = (
 				BFD945DE244DC5E80012785A /* AppDelegate.swift */,
 				BFD945E0244DC5E80012785A /* SceneDelegate.swift */,
-				BFD945E2244DC5E80012785A /* SearchRepositoryViewController.swift */,
-				E7101A6E2488DB6500CA3567 /* SearchRepositoryCell.swift */,
-				BF0A658C244F2A3B00280FA6 /* RepositoryDetailViewController.swift */,
+				E70E982124890247000E6D44 /* SearchRepository */,
+				E70E98222489025B000E6D44 /* RepositoryDetail */,
 				E7101A6C2488D09A00CA3567 /* GetLog.swift */,
 				BFD945E4244DC5E80012785A /* Main.storyboard */,
 				BFD945E7244DC5EB0012785A /* Assets.xcassets */,
@@ -135,6 +136,24 @@
 				BFD94602244DC5EC0012785A /* Info.plist */,
 			);
 			path = iOSEngineerCodeCheckUITests;
+			sourceTree = "<group>";
+		};
+		E70E982124890247000E6D44 /* SearchRepository */ = {
+			isa = PBXGroup;
+			children = (
+				BFD945E2244DC5E80012785A /* SearchRepositoryViewController.swift */,
+				E70E981F248901B4000E6D44 /* SearchRepositoryVCSearchBar.swift */,
+				E7101A6E2488DB6500CA3567 /* SearchRepositoryCell.swift */,
+			);
+			path = SearchRepository;
+			sourceTree = "<group>";
+		};
+		E70E98222489025B000E6D44 /* RepositoryDetail */ = {
+			isa = PBXGroup;
+			children = (
+				BF0A658C244F2A3B00280FA6 /* RepositoryDetailViewController.swift */,
+			);
+			path = RepositoryDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +293,7 @@
 				BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */,
 				BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */,
 				E7101A6F2488DB6500CA3567 /* SearchRepositoryCell.swift in Sources */,
+				E70E9820248901B4000E6D44 /* SearchRepositoryVCSearchBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
