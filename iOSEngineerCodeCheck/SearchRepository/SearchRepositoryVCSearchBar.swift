@@ -42,6 +42,7 @@ extension SearchRepositoryViewController: UISearchBarDelegate{
             }
             // データ取得
             viewModel.getRepositoriesData(searchUrl){ items in
+                // 取得データ反映
                 self.repos = items
                 DispatchQueue.main.async {
                     self.tableView.reloadData()

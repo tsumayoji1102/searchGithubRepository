@@ -28,7 +28,7 @@ class SearchRepositoryViewController: UITableViewController{
         viewModel = SearchRepositoryViewModel()
         
         // 検索バーの初期化
-        reposSearchBar.text     = "GitHubのリポジトリを検索できるよー"
+        reposSearchBar.placeholder = "リポジトリ名を入力"
         reposSearchBar.delegate = self
     }
     
