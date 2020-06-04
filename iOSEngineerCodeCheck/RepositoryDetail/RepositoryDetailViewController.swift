@@ -23,16 +23,22 @@ class RepositoryDetailViewController: UIViewController {
     
     // 検索画面
     var searchRepositoryVC: SearchRepositoryViewController!
+    
+    // viewModel
+    var viewModel: RepositoryDetailViewModel!
         
     override func viewDidLoad() {
         super.viewDidLoad()
         GetLog.getLog(message: nil)
+        
+        viewModel = RepositoryDetailViewModel()
         
         // 対象のリポジトリ取得(nilにはならない)
         detailRepo = searchRepositoryVC.repos[searchRepositoryVC.index]
         GetLog.getLog(message: "\(detailRepo)")
 
         // ラベルに代入
+        titleLbl.text    = detailRepo["full_name"]              as? String ?? "?"
         languageLbl.text = "Written in \(detailRepo["language"] as? String ?? "?")"
         starsLbl.text    = "\(detailRepo["stargazers_count"]    as? Int ?? 0) stars"
         watchersLbl.text = "\(detailRepo["watchers_count"]      as? Int ?? 0) watchers"
@@ -52,41 +58,15 @@ class RepositoryDetailViewController: UIViewController {
     func getImage(){
         
         GetLog.getLog(message: nil)
-        // フルネーム取得
-        titleLbl.text = detailRepo["full_name"] as? String
         
-        if let owner = detailRepo["owner"] as? [String: Any] {
-            GetLog.getLog(message: "\(owner)")
+        // 画像取得処理
+        viewModel.getImageFromRepo(detailRepo){ img in
             
-            // アバター画像URLがあるなら画像取得処理
-            if let imgURL = owner["avatar_url"] as? String {
-                GetLog.getLog(message: "\(imgURL)")
-                
-                // 画像取得URLを取得
-                guard let imageUrl = URL(string: imgURL) else {
-                    return
+            if(img != nil){
+                // 非同期で画像を反映
+                DispatchQueue.main.async {
+                    self.avatarImgView.image = img
                 }
-                GetLog.getLog(message: "\(imageUrl)")
-                
-                // タスク内容設定
-                URLSession.shared.dataTask(with: imageUrl) { (data, res, err) in
-            
-                    GetLog.getLog(message: nil)
-                    // エラーなら終了
-                    if(err != nil){
-                        GetLog.getLog(message: "\(err!)")
-                        return
-                    }
-                    // 画像取得
-                    guard data != nil, let img = UIImage(data: data!) else{
-                        return
-                    }
-                    // 非同期で画像を反映
-                    DispatchQueue.main.async {
-                        self.avatarImgView.image = img
-                    }
-                // タスク実行
-                }.resume()
             }
         }
     }

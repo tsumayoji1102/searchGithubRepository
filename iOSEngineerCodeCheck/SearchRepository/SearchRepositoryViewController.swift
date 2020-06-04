@@ -13,15 +13,19 @@ class SearchRepositoryViewController: UITableViewController{
     @IBOutlet weak var reposSearchBar: UISearchBar!
     
     var repos:       [[String: Any]]=[]   // 取得したリポジトリ
-    var getRepoTask: URLSessionTask?      // 取得処理のタスク
     var searchWord:  String!              // 検索ワード
     var searchUrl:   String!              // リポジトリ検索APIのURL
     var index:       Int!                 // リポジトリの行番号(画面遷移時)
+    
+    var viewModel: SearchRepositoryViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         GetLog.getLog(message: nil)
+        
+        // viewModel初期化
+        viewModel = SearchRepositoryViewModel()
         
         // 検索バーの初期化
         reposSearchBar.text     = "GitHubのリポジトリを検索できるよー"

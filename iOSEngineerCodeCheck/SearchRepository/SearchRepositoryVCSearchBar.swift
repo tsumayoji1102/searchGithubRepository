@@ -23,7 +23,7 @@ extension SearchRepositoryViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         GetLog.getLog(message: nil)
-        getRepoTask?.cancel()
+        viewModel.getReposTask?.cancel()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -40,48 +40,14 @@ extension SearchRepositoryViewController: UISearchBarDelegate{
             if(searchUrl == nil){
                 return
             }
-            // URLのエンコード(パースミスを防ぐ)
-            let encodedUrl = searchUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-            GetLog.getLog(message: "\(String(describing: encodedUrl))")
+            // データ取得
+            viewModel.getRepositoriesData(searchUrl){ items in
+                self.repos = items
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
             
-            // URL形式にする
-            guard encodedUrl != nil, let url = URL(string: encodedUrl!) else{
-                return
-            }
-            // データ取得処理
-            getRepoTask = URLSession.shared.dataTask(with: url) { (data, res, err) in
-                // エラーがあるなら終了
-                if err != nil {
-                    GetLog.getLog(message: "\(String(describing: err))")
-                    return
-                }
-                // データがないなら終了
-                if data == nil {
-                    
-                    return
-                }
-                // パース処理
-                if let obj = try! JSONSerialization.jsonObject(with: data!) as? [String: Any]{
-                    GetLog.getLog(message: "\(String(describing: obj))")
-                    
-                    // データをテーブルに反映
-                    if let items = obj["items"] as? [[String: Any]] {
-                        GetLog.getLog(message: "\(items)")
-                        self.repos = items
-                        
-                        // 非同期で更新
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
-                    }
-                }
-            }
-            // タスクが設定できてない時
-            if(getRepoTask == nil){
-                return
-            }
-            // taskの実行
-            getRepoTask?.resume()
         }
     }
 }
