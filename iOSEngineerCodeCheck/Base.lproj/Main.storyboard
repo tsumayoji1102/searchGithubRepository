@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wFt-RI-uk4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wFt-RI-uk4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -10,7 +10,7 @@
         <!--Root View Controller-->
         <scene sceneID="0Yw-Vc-k2Q">
             <objects>
-                <tableViewController id="MOh-CZ-3ki" customClass="ViewController" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="MOh-CZ-3ki" customClass="SearchRepositoryViewController" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Fpt-Ev-QNW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -53,18 +53,18 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="ktq-eC-ZBq"/>
                     <connections>
-                        <outlet property="SchBr" destination="6rq-CD-Hob" id="3gq-mK-4M3"/>
-                        <segue destination="AHY-RL-7mG" kind="show" identifier="Detail" id="qqd-8W-4W1"/>
+                        <outlet property="reposSearchBar" destination="6rq-CD-Hob" id="7Mk-as-A1K"/>
+                        <segue destination="AHY-RL-7mG" kind="show" identifier="RepositoryDetail" id="qqd-8W-4W1"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xer-fe-JeW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-498" y="137"/>
         </scene>
-        <!--View Controller2-->
+        <!--Repository Detail View Controller-->
         <scene sceneID="JOC-74-7VT">
             <objects>
-                <viewController id="AHY-RL-7mG" customClass="ViewController2" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="AHY-RL-7mG" customClass="RepositoryDetailViewController" customModule="iOSEngineerCodeCheck" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4gp-25-lRZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,7 +99,7 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wathcers" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lQC-lo-IqN">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wathcers" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lQC-lo-IqN" userLabel="Watchers">
                                                 <rect key="frame" x="0.0" y="34" width="65" height="18"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -136,13 +136,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="J6o-vL-S1z"/>
                     <connections>
-                        <outlet property="FrksLbl" destination="ZMv-4f-X2V" id="i84-sH-c5t"/>
-                        <outlet property="ImgView" destination="Iim-eb-8Ad" id="dmH-tP-ZuI"/>
-                        <outlet property="IsssLbl" destination="dzg-K8-h2L" id="L0v-sy-cD4"/>
-                        <outlet property="LangLbl" destination="s3M-QO-Kom" id="x3L-gZ-aZZ"/>
-                        <outlet property="StrsLbl" destination="0WZ-UA-R8O" id="gYb-gI-iMf"/>
-                        <outlet property="TtlLbl" destination="4q1-pG-WSB" id="UQ0-5D-rWe"/>
-                        <outlet property="WchsLbl" destination="lQC-lo-IqN" id="Drg-Jv-iUh"/>
+                        <outlet property="avatarImgView" destination="Iim-eb-8Ad" id="DiQ-MF-fH8"/>
+                        <outlet property="forksLbl" destination="ZMv-4f-X2V" id="h06-Fj-uW5"/>
+                        <outlet property="issuesLbl" destination="dzg-K8-h2L" id="Tsp-BS-Crh"/>
+                        <outlet property="languageLbl" destination="s3M-QO-Kom" id="T2k-iJ-f86"/>
+                        <outlet property="starsLbl" destination="0WZ-UA-R8O" id="Se5-7O-gpC"/>
+                        <outlet property="titleLbl" destination="4q1-pG-WSB" id="66S-Mb-NSR"/>
+                        <outlet property="watchersLbl" destination="lQC-lo-IqN" id="Nn0-Sn-nxO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rj0-Ld-RTn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
