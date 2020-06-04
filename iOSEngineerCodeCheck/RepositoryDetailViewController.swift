@@ -12,13 +12,14 @@ class RepositoryDetailViewController: UIViewController {
     
     @IBOutlet weak var avatarImgView: UIImageView!
     
-    @IBOutlet weak var titleLbl:    UILabel!
-    @IBOutlet weak var languageLbl: UILabel!
-    @IBOutlet weak var starsLbl:    UILabel!
-    @IBOutlet weak var watchersLbl: UILabel!
-    @IBOutlet weak var forksLbl:    UILabel!
-    @IBOutlet weak var issuesLbl:   UILabel!
+    @IBOutlet weak var titleLbl:    UILabel!    // リポジトリ名
+    @IBOutlet weak var languageLbl: UILabel!    // 言語名
+    @IBOutlet weak var starsLbl:    UILabel!    // スター数
+    @IBOutlet weak var watchersLbl: UILabel!    // 閲覧者数
+    @IBOutlet weak var forksLbl:    UILabel!    // フォーク数
+    @IBOutlet weak var issuesLbl:   UILabel!    // イシュー数
     
+    // 検索画面
     var searchRepositoryVC: SearchRepositoryViewController!
         
     override func viewDidLoad() {

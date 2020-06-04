@@ -12,11 +12,11 @@ class SearchRepositoryViewController: UITableViewController, UISearchBarDelegate
 
     @IBOutlet weak var reposSearchBar: UISearchBar!
     
-    var repos:      [[String: Any]]=[]
-    var task:       URLSessionTask?
-    var searchWord: String!
-    var url:        String!
-    var index:      Int!
+    var repos:       [[String: Any]]=[]   // 取得したリポジトリ
+    var getRepoTask: URLSessionTask?      // 取得処理のタスク
+    var searchWord:  String!              // 検索ワード
+    var searchUrl:   String!              // リポジトリ検索APIのURL
+    var index:       Int!                 // リポジトリの行番号(画面遷移時)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class SearchRepositoryViewController: UITableViewController, UISearchBarDelegate
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        task?.cancel()
+        getRepoTask?.cancel()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -43,9 +43,9 @@ class SearchRepositoryViewController: UITableViewController, UISearchBarDelegate
         // 0文字なら処理しない
         if searchWord.count != 0 {
             // URLに代入
-            url  = "https://api.github.com/search/repositories?q=\(searchWord!)"
+            searchUrl  = "https://api.github.com/search/repositories?q=\(searchWord!)"
             // データ取得処理
-            task = URLSession.shared.dataTask(with: URL(string: url)!) { (data, res, err) in
+            getRepoTask = URLSession.shared.dataTask(with: URL(string: searchUrl)!) { (data, res, err) in
                 if let obj = try! JSONSerialization.jsonObject(with: data!) as? [String: Any]{
                     // データをテーブルに反映
                     if let items = obj["items"] as? [[String: Any]] {
@@ -57,7 +57,7 @@ class SearchRepositoryViewController: UITableViewController, UISearchBarDelegate
                 }
             }
             // taskの実行
-            task?.resume()
+            getRepoTask?.resume()
         }
     }
     
