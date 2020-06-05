@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RepositoryDetailViewController: UIViewController {
+final class RepositoryDetailViewController: UIViewController {
     
     @IBOutlet weak var avatarImgView: UIImageView!
     @IBOutlet weak var titleLbl:      UILabel!    // リポジトリ名
@@ -58,7 +58,6 @@ class RepositoryDetailViewController: UIViewController {
     func getImage(){
         
         GetLog.getLog(message: nil)
-        
         // 画像取得処理
         viewModel.getImageFromRepo(detailRepo){ img in
             

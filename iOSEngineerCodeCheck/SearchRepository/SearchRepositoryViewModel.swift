@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchRepositoryViewModel: NSObject {
+final class SearchRepositoryViewModel: NSObject {
     
     var getReposTask: URLSessionTask?
     

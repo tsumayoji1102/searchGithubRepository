@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GetLog: NSObject {
+final class GetLog: NSObject {
     
     static func getLog(
         function: String = #function,
@@ -16,10 +16,14 @@ class GetLog: NSObject {
         line:     Int    = #line,
         message:  String!){
         
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = "yyyy/MM/dd HH:mm:ss"
+        let now = dateFormat.string(from: Date())
+        
         if(message != nil){
-            Swift.print("\(file):\(line)行目 \(function) \n\(String(describing: message))")
+            Swift.print("\(now)\n\(file):\(line)行目 \(function) \n\(String(describing: message))")
         }else{
-            Swift.print("\(file):\(line)行目 \(function)")
+            Swift.print("\(now)\n\(file):\(line)行目 \(function)")
         }
         
     }

@@ -26,7 +26,13 @@ extension SearchRepositoryViewController: UISearchBarDelegate{
         viewModel.getReposTask?.cancel()
     }
     
+    // クリック
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        // 同じ検索ワードなら処理しない
+        if(searchBar.text! == searchWord){
+            return
+        }
         // 検索ワード取得
         searchWord = searchBar.text!
         GetLog.getLog(message: "\(String(describing: searchWord))")
@@ -48,7 +54,11 @@ extension SearchRepositoryViewController: UISearchBarDelegate{
                     self.tableView.reloadData()
                 }
             }
-            
+        // 0文字の時
+        }else{
+            // 初期化、セルを空で表示
+            self.repos = [[String: Any]]()
+            self.tableView.reloadData()
         }
     }
 }

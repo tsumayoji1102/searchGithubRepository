@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RepositoryDetailViewModel: NSObject {
+final class RepositoryDetailViewModel: NSObject {
     
     var getImageTask: URLSessionTask?
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchRepositoryViewController: UITableViewController{
+final class SearchRepositoryViewController: UITableViewController{
 
     @IBOutlet weak var reposSearchBar: UISearchBar!
     
@@ -24,12 +24,15 @@ class SearchRepositoryViewController: UITableViewController{
         
         GetLog.getLog(message: nil)
         
+        // 空のデータを表示させない
+        self.tableView.tableFooterView = UIView()
+        
         // viewModel初期化
         viewModel = SearchRepositoryViewModel()
         
         // 検索バーの初期化
         reposSearchBar.placeholder = "リポジトリ名を入力"
-        reposSearchBar.delegate = self
+        reposSearchBar.delegate    = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -65,8 +68,8 @@ class SearchRepositoryViewController: UITableViewController{
         // リポジトリ取得
         let repo = repos[indexPath.row]
         // テーブルに反映
-        cell.repositoryTitle.text  = repo["full_name"] as? String ?? ""
-        cell.usedLanguage.text     = repo["language"]  as? String ?? ""
+        cell.repositoryTitle.text = repo["full_name"] as? String ?? ""
+        cell.usedLanguage.text    = repo["language"]  as? String ?? ""
         // セルの行番号を設定
         cell.tag = indexPath.row
         
