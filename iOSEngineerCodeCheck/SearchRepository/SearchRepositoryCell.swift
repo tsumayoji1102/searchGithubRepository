@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchRepositoryCell: UITableViewCell {
+final class SearchRepositoryCell: UITableViewCell {
     
     @IBOutlet weak var repositoryTitle: UILabel!
     @IBOutlet weak var usedLanguage:    UILabel!
