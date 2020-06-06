@@ -31,7 +31,6 @@ final class SearchRepositoryViewController: UITableViewController{
         viewModel = SearchRepositoryViewModel()
         
         // 検索バーの初期化
-        reposSearchBar.placeholder = "リポジトリ名を入力"
         reposSearchBar.delegate    = self
     }
     
