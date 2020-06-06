@@ -27,10 +27,12 @@ final class RepositoryDetailViewController: UIViewController {
     // viewModel
     var viewModel: RepositoryDetailViewModel!
         
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         GetLog.getLog(message: nil)
         
+        // viewModel初期化
         viewModel = RepositoryDetailViewModel()
         
         // 対象のリポジトリ取得(nilにはならない)
@@ -44,6 +46,9 @@ final class RepositoryDetailViewController: UIViewController {
         watchersLbl.text = "\(detailRepo["watchers_count"]      as? Int ?? 0) watchers"
         forksLbl.text    = "\(detailRepo["forks_count"]         as? Int ?? 0) forks"
         issuesLbl.text   = "\(detailRepo["open_issues_count"]   as? Int ?? 0) open issues"
+        
+        // ナビバーのタイトル設定
+        self.navigationItem.title = detailRepo["full_name"] as? String ?? "?"
         
         // アカウントの画像取得
         getImage()

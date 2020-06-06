@@ -22,6 +22,7 @@
 		E7101A6D2488D09A00CA3567 /* GetLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101A6C2488D09A00CA3567 /* GetLog.swift */; };
 		E7101A6F2488DB6500CA3567 /* SearchRepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7101A6E2488DB6500CA3567 /* SearchRepositoryCell.swift */; };
 		E7DC7E35248A31EC00C31571 /* SearchRepositoryVCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DC7E34248A31EC00C31571 /* SearchRepositoryVCTests.swift */; };
+		E7DC7E39248A697D00C31571 /* SearchRepositoryVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DC7E38248A697D00C31571 /* SearchRepositoryVMTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		E7101A6C2488D09A00CA3567 /* GetLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLog.swift; sourceTree = "<group>"; };
 		E7101A6E2488DB6500CA3567 /* SearchRepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoryCell.swift; sourceTree = "<group>"; };
 		E7DC7E34248A31EC00C31571 /* SearchRepositoryVCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoryVCTests.swift; sourceTree = "<group>"; };
+		E7DC7E38248A697D00C31571 /* SearchRepositoryVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoryVMTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				BFD945F5244DC5EB0012785A /* iOSEngineerCodeCheckTests.swift */,
 				BFD945F7244DC5EB0012785A /* Info.plist */,
 				E7DC7E34248A31EC00C31571 /* SearchRepositoryVCTests.swift */,
+				E7DC7E38248A697D00C31571 /* SearchRepositoryVMTests.swift */,
 			);
 			path = iOSEngineerCodeCheckTests;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 			files = (
 				E7DC7E35248A31EC00C31571 /* SearchRepositoryVCTests.swift in Sources */,
 				BFD945F6244DC5EB0012785A /* iOSEngineerCodeCheckTests.swift in Sources */,
+				E7DC7E39248A697D00C31571 /* SearchRepositoryVMTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
