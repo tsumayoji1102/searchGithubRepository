@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKHUD
 
 final class SearchRepositoryViewController: UITableViewController{
 
@@ -31,7 +32,8 @@ final class SearchRepositoryViewController: UITableViewController{
         viewModel = SearchRepositoryViewModel()
         
         // 検索バーの初期化
-        reposSearchBar.delegate    = self
+        reposSearchBar.delegate = self
+        reposSearchBar.placeholder = "リポジトリ名を入力"
     }
     
     override func didReceiveMemoryWarning() {
