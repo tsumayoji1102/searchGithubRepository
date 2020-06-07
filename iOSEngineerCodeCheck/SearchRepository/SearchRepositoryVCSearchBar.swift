@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKHUD
 
 // MARK: - UISearchBarDelegate
 
@@ -39,11 +40,13 @@ extension SearchRepositoryViewController: UISearchBarDelegate{
         
         // 0文字なら処理しない
         if searchWord.count != 0 {
+            HUD.flash(.progress, delay: 0.0)
             // URLに代入
             searchUrl = "https://api.github.com/search/repositories?q=\(searchWord!)"
             GetLog.getLog(message: "\(String(describing: searchUrl))")
             // 取得ミス時
             if(searchUrl == nil){
+                HUD.hide()
                 return
             }
             // データ取得
@@ -52,6 +55,7 @@ extension SearchRepositoryViewController: UISearchBarDelegate{
                 self.repos = items
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    HUD.hide()
                 }
             }
         // 0文字の時
